@@ -2,7 +2,7 @@ import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { adminAuth, adminDb } from "./firebase-admin";
-export const authOptions: NextAuthOptions ={
+export  const authOptions: NextAuthOptions ={
     providers:[
         GoogleProvider({
             clientId : process.env.GOOGLE_CLIENT_ID!,
@@ -31,5 +31,5 @@ export const authOptions: NextAuthOptions ={
     session: {
         strategy: 'jwt',
     },
-    adapter: FirestoreAdapter(adminDb),
+    adapter: FirestoreAdapter(adminDb) as any,
 } satisfies NextAuthOptions;

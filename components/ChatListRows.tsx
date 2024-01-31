@@ -10,7 +10,7 @@ type Props = {
     initialChats : ChatMembers[];
 }
 
-const ChatListRows = (initialChats: Props) => {
+const ChatListRows = ({initialChats}: Props) => {
     const {data : session} = useSession();
 
     const [members, loading, error] = useCollectionData<ChatMembers>(
